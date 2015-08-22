@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
   res.sendfile('./client/index.html');
 });
 
-app.get('/api/getPlaylist', handler.getPlaylist);
+app.post('/api/getPlaylist', handler.getPlaylist);
 
 app.post('/api/createParty', handler.createParty);
 app.post('/api/joinParty', handler.joinParty);

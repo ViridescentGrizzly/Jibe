@@ -28,7 +28,7 @@ var party1 = new Party({
 });
 
 var party2 = new Party({
-  name: 'natesCoolParty',
+  name: 'grizzly.party',
   playlist: []
 });
 

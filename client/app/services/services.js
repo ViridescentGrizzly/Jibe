@@ -58,43 +58,44 @@ services.factory('searchYouTube', function ($http) {
 });
 
 */
-services.factory('playlistDatabase', function($http) {
+// services.factory('playlistDatabase', function($http) {
 
-    // this is our get request for our db for the current playlist in the room
-    // this will be called when a user loads the room and whenever a succesful post request occurs to the db (so
-    // the user can see the updated playlist when after they add somethng to it)
-    var getQueue = function(playlistId) {
-        return $http({
-                method: 'GET',
-                url: '/api/playlist/' + playlistId
-            })
-            .then(function(resp) {
-                return resp.data.songs;
-            });
-    };
+//     // this is our get request for our db for the current playlist in the room
+//     // this will be called when a user loads the room and whenever a succesful post request occurs to the db (so
+//     // the user can see the updated playlist when after they add somethng to it)
+//     var getQueue = function(partyName) {
+//         return $http({
+//                 method: 'GET',
+//                 url: '/api/getPlaylist/',
+//                 data: partyName
+//             })
+//             .then(function(resp) {
+//               return resp.data;
+//             });
+//     };
 
-    var addSong = function(songData, playlistId) {
-        return $http({
-            method: 'POST',
-            url: '/api/playlist/add/' + playlistId + '/' + songData.uri,
-            data: songData
-        });
-    };
+//     var addSong = function(songData, playlistId) {
+//         return $http({
+//             method: 'POST',
+//             url: '/api/playlist/add/' + playlistId + '/' + songData.uri,
+//             data: songData
+//         });
+//     };
 
-    var removeSong = function(songData, playlistId) {
-        return $http({
-            method: 'POST',
-            url: '/api/playlist/remove/' + songData.playlistId + '/' + songData.songId,
-        });
-    };
+//     var removeSong = function(songData, playlistId) {
+//         return $http({
+//             method: 'POST',
+//             url: '/api/playlist/remove/' + songData.playlistId + '/' + songData.songId,
+//         });
+//     };
 
-    return {
-        getQueue: getQueue,
-        addSong: addSong,
-        removeSong: removeSong
-    };
+//     return {
+//         getQueue: getQueue,
+//         addSong: addSong,
+//         removeSong: removeSong
+//     };
 
-});
+// });
 // this is not needed due to the usage of facebook auth
 // .factory('userDatabase', function($http) {
 //     var signIn = function(userData) {

@@ -7,7 +7,19 @@ var Party = require('./db-config.js');
 // var Song = require('./db-config.js');
 
 exports.getPlaylist = function (req, res) {
-  console.log('Get playlist.');
+  console.log('Get playlist.', req.body);
+  Party.findOne({ name: req.body.name })
+    .exec(function(err, party) {
+      if (!party) {
+        // No party. Teapot.
+        console.log('Error: no party with that name.');
+        res.status(404).end();
+      } else {
+        console.log('Success: time to party.', party.playlist);
+        res.send(party.playlist);
+      }
+  });
+
 
 };
 
